@@ -38,3 +38,13 @@ func getPrayerTimes(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(prayerTime)
 	}
 }
+
+// Main function
+func main() {
+	// Create the handler
+	http.HandleFunc("/getPrayerTimes", getPrayerTimes)
+
+	// Start the server
+	fmt.Println("Starting server on port 8080...")
+	http.ListenAndServe(":8080", nil)
+}
